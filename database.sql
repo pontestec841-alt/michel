@@ -8,13 +8,14 @@ CREATE TABLE IF NOT EXISTS `settings` (
   `event_date` varchar(255) NOT NULL DEFAULT '20 de Dezembro',
   `event_time` varchar(255) NOT NULL DEFAULT '18:00',
   `event_location` varchar(255) NOT NULL DEFAULT 'Castelo Encantado',
+  `music_url` varchar(255) DEFAULT '',
   `music_enabled` tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Insert default settings if empty
-INSERT INTO `settings` (`event_date`, `event_time`, `event_location`, `music_enabled`)
-SELECT '20 de Dezembro', '18:00', 'Castelo Encantado', 1
+INSERT INTO `settings` (`event_date`, `event_time`, `event_location`, `music_url`, `music_enabled`)
+SELECT '20 de Dezembro', '18:00', 'Castelo Encantado', '', 1
 WHERE NOT EXISTS (SELECT 1 FROM `settings` LIMIT 1);
 
 -- Table structure for table `guests`
