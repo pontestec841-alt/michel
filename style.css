@@ -232,3 +232,23 @@ th {
 tr:nth-child(even) {
     background-color: #f9f9f9;
 }
+
+/* Print Styles */
+@media print {
+    body {
+        background-color: white;
+    }
+    .no-print {
+        display: none !important;
+    }
+    .container {
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        max-width: none;
+    }
+    .invitation-card {
+        border-radius: 0;
+    }
+}

@@ -22,6 +22,14 @@ try {
     // Ignore error, just proceed
 }
 
+// Fetch settings
+try {
+    $stmt = $pdo->query("SELECT * FROM settings WHERE id = 1");
+    $settings = $stmt->fetch(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("Erro ao buscar configurações.");
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -38,9 +46,9 @@ try {
             <p style="font-size: 1.5rem; font-weight: 600;">Querido(a) <?php echo htmlspecialchars($guestName); ?>,</p>
             <p>A magia está no ar! Celebre comigo este dia muito especial.</p>
             <hr style="border: 1px solid var(--primary-color); margin: 20px 0;">
-            <p><strong>Data:</strong> 15 de Novembro de 2024</p>
-            <p><strong>Hora:</strong> 15:00 hs</p>
-            <p><strong>Local:</strong> Jardim das Fadas (Rua Exemplo, 123)</p>
+            <p><strong>Data:</strong> <?php echo htmlspecialchars($settings['event_date']); ?></p>
+            <p><strong>Hora:</strong> <?php echo htmlspecialchars($settings['event_time']); ?></p>
+            <p><strong>Local:</strong> <?php echo htmlspecialchars($settings['event_location']); ?></p>
 
             <?php if ($giftSelected): ?>
                 <p style="margin-top: 20px; font-style: italic; color: var(--secondary-color);">
@@ -52,7 +60,18 @@ try {
                 <img src="assets/image3.jpg" alt="Decoração" style="width: 100%; max-width: 400px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
             </div>
 
-            <p style="margin-top: 30px; font-size: 0.9rem;">(Salve esta página ou tire um print do seu convite!)</p>
+            <?php if ($settings['music_enabled'] && !empty($settings['music_url'])): ?>
+                <div class="no-print" style="margin-top: 20px;">
+                    <audio controls autoplay loop>
+                        <source src="<?php echo htmlspecialchars($settings['music_url']); ?>" type="audio/mpeg">
+                        Seu navegador não suporta o elemento de áudio.
+                    </audio>
+                </div>
+            <?php endif; ?>
+
+            <div class="no-print" style="margin-top: 30px;">
+                <button onclick="window.print()" style="padding: 15px 30px; font-size: 1.2rem;">Salvar Convite (PDF/Imprimir)</button>
+            </div>
         </div>
     </div>
 </body>

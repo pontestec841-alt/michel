@@ -1,67 +1,43 @@
-[Thu Apr  2 19:20:39 2026] PHP 8.3.6 Development Server (http://localhost:8000) started
-[Thu Apr  2 19:20:41 2026] [::1]:41294 Accepted
-[Thu Apr  2 19:20:41 2026] [::1]:41294 [200]: GET /index.php
-[Thu Apr  2 19:20:41 2026] [::1]:41294 Closing
-[Thu Apr  2 19:21:08 2026] [::1]:35268 Accepted
-[Thu Apr  2 19:21:08 2026] [::1]:35268 [302]: POST /rsvp.php
-[Thu Apr  2 19:21:08 2026] [::1]:35268 Closing
-[Thu Apr  2 19:21:34 2026] [::1]:42436 Accepted
-[Thu Apr  2 19:21:34 2026] [::1]:42436 [200]: GET /gifts.php
-[Thu Apr  2 19:21:34 2026] [::1]:42436 Closing
-[Thu Apr  2 19:21:57 2026] [::1]:49866 Accepted
-[Thu Apr  2 19:21:57 2026] [::1]:49866 [200]: GET /gifts.php
-[Thu Apr  2 19:21:57 2026] [::1]:49866 Closing
-[Thu Apr  2 19:22:20 2026] [::1]:34260 Accepted
-[Thu Apr  2 19:22:20 2026] [::1]:34260 [302]: POST /select_gift.php
-[Thu Apr  2 19:22:20 2026] [::1]:34260 Closing
-[Thu Apr  2 19:22:20 2026] [::1]:34270 Accepted
-[Thu Apr  2 19:22:20 2026] [::1]:34270 [200]: POST /invitation.php
-[Thu Apr  2 19:22:20 2026] [::1]:34270 Closing
-[Thu Apr  2 19:22:35 2026] [::1]:44320 Accepted
-[Thu Apr  2 19:22:35 2026] [::1]:44320 [200]: GET /admin.php
-[Thu Apr  2 19:22:35 2026] [::1]:44320 Closing
-[Thu Apr  2 19:24:36 2026] [::1]:48316 Accepted
-[Thu Apr  2 19:24:36 2026] [::1]:48316 [200]: GET /index.php
-[Thu Apr  2 19:24:36 2026] [::1]:48316 Closing
-[Thu Apr  2 19:24:37 2026] [::1]:48318 Accepted
-[Thu Apr  2 19:24:37 2026] [::1]:48324 Accepted
-[Thu Apr  2 19:24:37 2026] [::1]:48318 [200]: GET /style.css
-[Thu Apr  2 19:24:37 2026] [::1]:48318 Closing
-[Thu Apr  2 19:24:37 2026] [::1]:48324 [200]: GET /assets/image1.jpg
-[Thu Apr  2 19:24:37 2026] [::1]:48324 Closing
-[Thu Apr  2 19:24:38 2026] [::1]:48326 Accepted
-[Thu Apr  2 19:24:39 2026] [::1]:48326 [302]: POST /rsvp.php
-[Thu Apr  2 19:24:39 2026] [::1]:48326 Closing
-[Thu Apr  2 19:24:39 2026] [::1]:48338 Accepted
-[Thu Apr  2 19:24:39 2026] [::1]:48338 [200]: GET /gifts.php
-[Thu Apr  2 19:24:39 2026] [::1]:48338 Closing
-[Thu Apr  2 19:24:39 2026] [::1]:48342 Accepted
-[Thu Apr  2 19:24:39 2026] [::1]:48342 [200]: GET /style.css
-[Thu Apr  2 19:24:39 2026] [::1]:48342 Closing
-[Thu Apr  2 19:24:40 2026] [::1]:48348 Accepted
-[Thu Apr  2 19:24:40 2026] [::1]:48348 [302]: POST /select_gift.php
-[Thu Apr  2 19:24:40 2026] [::1]:48348 Closing
-[Thu Apr  2 19:24:40 2026] [::1]:48350 Accepted
-[Thu Apr  2 19:24:40 2026] [::1]:48350 [200]: GET /invitation.php
-[Thu Apr  2 19:24:40 2026] [::1]:48350 Closing
-[Thu Apr  2 19:24:40 2026] [::1]:48364 Accepted
-[Thu Apr  2 19:24:40 2026] [::1]:48378 Accepted
-[Thu Apr  2 19:24:40 2026] [::1]:48364 [200]: GET /style.css
-[Thu Apr  2 19:24:40 2026] [::1]:48378 [200]: GET /assets/image3.jpg
-[Thu Apr  2 19:24:40 2026] [::1]:48364 Closing
-[Thu Apr  2 19:24:40 2026] [::1]:48378 Closing
-[Thu Apr  2 19:24:40 2026] [::1]:48382 Accepted
-[Thu Apr  2 19:24:40 2026] [::1]:48382 [200]: GET /assets/image4.jpg
-[Thu Apr  2 19:24:40 2026] [::1]:48382 Closing
-[Thu Apr  2 19:28:39 2026] [::1]:55202 Accepted
-[Thu Apr  2 19:28:39 2026] [::1]:55202 [200]: GET /admin.php
-[Thu Apr  2 19:28:39 2026] [::1]:55202 Closing
-[Thu Apr  2 19:29:11 2026] [::1]:56558 Accepted
-[Thu Apr  2 19:29:11 2026] [::1]:56558 [200]: POST /admin.php
-[Thu Apr  2 19:29:11 2026] [::1]:56558 Closing
-[Thu Apr  2 19:30:05 2026] [::1]:49454 Accepted
-[Thu Apr  2 19:30:05 2026] [::1]:49454 [200]: GET /index.php
-[Thu Apr  2 19:30:05 2026] [::1]:49454 Closing
-[Thu Apr  2 19:30:35 2026] [::1]:40386 Accepted
-[Thu Apr  2 19:30:35 2026] [::1]:40386 [200]: POST /rsvp.php
-[Thu Apr  2 19:30:35 2026] [::1]:40386 Closing
+[Thu Apr  2 20:13:52 2026] PHP 8.3.6 Development Server (http://localhost:8000) started
+[Thu Apr  2 20:14:31 2026] [::1]:38430 Accepted
+[Thu Apr  2 20:14:31 2026] [::1]:38430 [200]: GET /index.php
+[Thu Apr  2 20:14:31 2026] [::1]:38430 Closing
+[Thu Apr  2 20:14:31 2026] [::1]:38436 Accepted
+[Thu Apr  2 20:14:31 2026] [::1]:38448 Accepted
+[Thu Apr  2 20:14:31 2026] [::1]:38436 [200]: GET /style.css
+[Thu Apr  2 20:14:31 2026] [::1]:38436 Closing
+[Thu Apr  2 20:14:31 2026] [::1]:38448 [200]: GET /assets/image1.jpg
+[Thu Apr  2 20:14:31 2026] [::1]:38448 Closing
+[Thu Apr  2 20:14:33 2026] [::1]:38464 Accepted
+[Thu Apr  2 20:14:33 2026] [::1]:38464 [302]: POST /rsvp.php
+[Thu Apr  2 20:14:33 2026] [::1]:38464 Closing
+[Thu Apr  2 20:14:33 2026] [::1]:38472 Accepted
+[Thu Apr  2 20:14:33 2026] [::1]:38472 [200]: GET /gifts.php
+[Thu Apr  2 20:14:33 2026] [::1]:38472 Closing
+[Thu Apr  2 20:14:33 2026] [::1]:38482 Accepted
+[Thu Apr  2 20:14:33 2026] [::1]:38482 [200]: GET /style.css
+[Thu Apr  2 20:14:33 2026] [::1]:38482 Closing
+[Thu Apr  2 20:14:33 2026] [::1]:38484 Accepted
+[Thu Apr  2 20:14:33 2026] [::1]:38484 [200]: GET /invitation.php
+[Thu Apr  2 20:14:33 2026] [::1]:38484 Closing
+[Thu Apr  2 20:14:33 2026] [::1]:38490 Accepted
+[Thu Apr  2 20:14:33 2026] [::1]:38492 Accepted
+[Thu Apr  2 20:14:33 2026] [::1]:38490 [200]: GET /style.css
+[Thu Apr  2 20:14:33 2026] [::1]:38490 Closing
+[Thu Apr  2 20:14:33 2026] [::1]:38492 [200]: GET /assets/image3.jpg
+[Thu Apr  2 20:14:33 2026] [::1]:38492 Closing
+[Thu Apr  2 20:14:33 2026] [::1]:38500 Accepted
+[Thu Apr  2 20:14:33 2026] [::1]:38500 [200]: GET /assets/image4.jpg
+[Thu Apr  2 20:14:33 2026] [::1]:38500 Closing
+[Thu Apr  2 20:14:35 2026] [::1]:38516 Accepted
+[Thu Apr  2 20:14:35 2026] [::1]:38516 [200]: GET /admin.php
+[Thu Apr  2 20:14:35 2026] [::1]:38516 Closing
+[Thu Apr  2 20:14:35 2026] [::1]:38524 Accepted
+[Thu Apr  2 20:14:35 2026] [::1]:38524 [200]: GET /style.css
+[Thu Apr  2 20:14:35 2026] [::1]:38524 Closing
+[Thu Apr  2 20:14:36 2026] [::1]:38540 Accepted
+[Thu Apr  2 20:14:36 2026] [::1]:38540 [200]: POST /admin.php
+[Thu Apr  2 20:14:36 2026] [::1]:38540 Closing
+[Thu Apr  2 20:14:36 2026] [::1]:38548 Accepted
+[Thu Apr  2 20:14:36 2026] [::1]:38548 [200]: GET /style.css
+[Thu Apr  2 20:14:36 2026] [::1]:38548 Closing

@@ -10,10 +10,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!empty($_POST['guest_name'])) {
         $guestName = trim($_POST['guest_name']);
+        $guestCount = isset($_POST['guest_count']) ? (int)$_POST['guest_count'] : 1;
 
         try {
-            $stmt = $pdo->prepare("INSERT INTO guests (name) VALUES (:name)");
-            $stmt->execute(['name' => $guestName]);
+            $stmt = $pdo->prepare("INSERT INTO guests (name, guest_count) VALUES (:name, :guest_count)");
+            $stmt->execute([
+                'name' => $guestName,
+                'guest_count' => $guestCount
+            ]);
 
             $guestId = $pdo->lastInsertId();
 

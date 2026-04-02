@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administração - Aniversário</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" style="max-width: 800px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h1>Painel de Administração</h1>
+            <form action="admin.php" method="POST" style="margin:0;">
+                <button type="submit" name="admin_logout" style="padding: 8px 15px; font-size: 0.9rem;">Sair</button>
+            </form>
+        </div>
+
+
+        <div style="background: #fff0f5; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+            <h2>Configurações do Evento</h2>
+            <form action="admin.php" method="POST" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: left;">
+                <input type="hidden" name="csrf_token" value="ef082ec2fff3a535739eeace13ea1c3cb23bf6c979d29bec5240411cbba5312a">
+
+                <div style="display:flex; flex-direction:column;">
+                    <label>Data:</label>
+                    <input type="text" name="event_date" value="15 de Novembro de 2024" required>
+                </div>
+                <div style="display:flex; flex-direction:column;">
+                    <label>Hora:</label>
+                    <input type="text" name="event_time" value="15:00 hs" required>
+                </div>
+                <div style="grid-column: 1 / -1; display:flex; flex-direction:column;">
+                    <label>Local:</label>
+                    <input type="text" name="event_location" value="Jardim das Fadas (Rua Exemplo, 123)" required>
+                </div>
+                <div style="grid-column: 1 / -1; display:flex; flex-direction:column;">
+                    <label>URL da Música (Opcional):</label>
+                    <input type="text" name="music_url" value="">
+                </div>
+                <div style="grid-column: 1 / -1; display:flex; align-items:center; gap:10px;">
+                    <input type="checkbox" name="music_enabled" value="1"  style="width: auto;">
+                    <label>Ativar música no convite</label>
+                </div>
+                <div style="grid-column: 1 / -1;">
+                    <button type="submit" name="update_settings" style="width:100%;">Salvar Configurações</button>
+                </div>
+            </form>
+        </div>
+
+        <h2>Convidados Confirmados</h2>
+        <p style="font-weight:bold; color:var(--secondary-color);">Total de Pessoas: 6 (Famílias: 3)</p>
+
+                    <div style="overflow-x:auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Qtd. Pessoas</th>
+                            <th>Data</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                                                    <tr>
+                                <td>3</td>
+                                <td>Family Smith</td>
+                                <td>
+                                    <form action="admin.php" method="POST" style="margin:0; display:flex; gap:5px; align-items:center;">
+                                        <input type="hidden" name="csrf_token" value="ef082ec2fff3a535739eeace13ea1c3cb23bf6c979d29bec5240411cbba5312a">
+                                        <input type="hidden" name="edit_guest_id" value="3">
+                                        <input type="number" name="new_guest_count" value="4" min="1" style="width:60px; padding:5px;">
+                                        <button type="submit" style="padding: 5px 10px; font-size: 0.8rem;">Salvar</button>
+                                    </form>
+                                </td>
+                                <td>02/04/2026 20:11</td>
+                                <td>
+                                    <form action="admin.php" method="POST" style="margin:0; padding:0;">
+                                        <input type="hidden" name="csrf_token" value="ef082ec2fff3a535739eeace13ea1c3cb23bf6c979d29bec5240411cbba5312a">
+                                        <input type="hidden" name="delete_guest_id" value="3">
+                                        <button type="submit" style="padding: 5px 10px; font-size: 0.8rem; background: #ff4d4d;" onclick="return confirm('Tem certeza que deseja deletar este convidado?');">Excluir</button>
+                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td>2</td>
+                                <td>Fairy Godmother</td>
+                                <td>
+                                    <form action="admin.php" method="POST" style="margin:0; display:flex; gap:5px; align-items:center;">
+                                        <input type="hidden" name="csrf_token" value="ef082ec2fff3a535739eeace13ea1c3cb23bf6c979d29bec5240411cbba5312a">
+                                        <input type="hidden" name="edit_guest_id" value="2">
+                                        <input type="number" name="new_guest_count" value="1" min="1" style="width:60px; padding:5px;">
+                                        <button type="submit" style="padding: 5px 10px; font-size: 0.8rem;">Salvar</button>
+                                    </form>
+                                </td>
+                                <td>02/04/2026 19:24</td>
+                                <td>
+                                    <form action="admin.php" method="POST" style="margin:0; padding:0;">
+                                        <input type="hidden" name="csrf_token" value="ef082ec2fff3a535739eeace13ea1c3cb23bf6c979d29bec5240411cbba5312a">
+                                        <input type="hidden" name="delete_guest_id" value="2">
+                                        <button type="submit" style="padding: 5px 10px; font-size: 0.8rem; background: #ff4d4d;" onclick="return confirm('Tem certeza que deseja deletar este convidado?');">Excluir</button>
+                                    </form>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td>1</td>
+                                <td>Test User</td>
+                                <td>
+                                    <form action="admin.php" method="POST" style="margin:0; display:flex; gap:5px; align-items:center;">
+                                        <input type="hidden" name="csrf_token" value="ef082ec2fff3a535739eeace13ea1c3cb23bf6c979d29bec5240411cbba5312a">
+                                        <input type="hidden" name="edit_guest_id" value="1">
+                                        <input type="number" name="new_guest_count" value="1" min="1" style="width:60px; padding:5px;">
+                                        <button type="submit" style="padding: 5px 10px; font-size: 0.8rem;">Salvar</button>
+                                    </form>
+                                </td>
+                                <td>02/04/2026 19:21</td>
+                                <td>
+                                    <form action="admin.php" method="POST" style="margin:0; padding:0;">
+                                        <input type="hidden" name="csrf_token" value="ef082ec2fff3a535739eeace13ea1c3cb23bf6c979d29bec5240411cbba5312a">
+                                        <input type="hidden" name="delete_guest_id" value="1">
+                                        <button type="submit" style="padding: 5px 10px; font-size: 0.8rem; background: #ff4d4d;" onclick="return confirm('Tem certeza que deseja deletar este convidado?');">Excluir</button>
+                                    </form>
+                                </td>
+                            </tr>
+                                            </tbody>
+                </table>
+            </div>
+
+        <hr style="margin: 40px 0;">
+
+        <h2>Gerenciar Lista de Presentes</h2>
+
+        <form action="admin.php" method="POST" style="flex-direction: row; justify-content: center;">
+            <input type="hidden" name="csrf_token" value="ef082ec2fff3a535739eeace13ea1c3cb23bf6c979d29bec5240411cbba5312a">
+            <input type="text" name="new_gift" placeholder="Nome do novo presente" required style="width: 60%;">
+            <button type="submit" style="padding: 12px 20px;">Adicionar</button>
+        </form>
+
+                    <table>
+                <thead>
+                    <tr>
+                        <th>Presente</th>
+                        <th>Status / Reservado por</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                                            <tr>
+                            <td>Kit de Desenho</td>
+                            <td>
+                                                                    <span style="color: green;">Disponível</span>
+                                                            </td>
+                            <td>
+                                <form action="admin.php" method="POST" style="margin:0; padding:0;">
+                                    <input type="hidden" name="csrf_token" value="ef082ec2fff3a535739eeace13ea1c3cb23bf6c979d29bec5240411cbba5312a">
+                                    <input type="hidden" name="delete_gift_id" value="8">
+                                    <button type="submit" style="padding: 5px 10px; font-size: 0.8rem; background: #ff4d4d;" onclick="return confirm('Tem certeza que deseja deletar este presente?');">Deletar</button>
+                                </form>
+                            </td>
+                        </tr>
+                                            <tr>
+                            <td>Patinete</td>
+                            <td>
+                                                                    <span style="color: green;">Disponível</span>
+                                                            </td>
+                            <td>
+                                <form action="admin.php" method="POST" style="margin:0; padding:0;">
+                                    <input type="hidden" name="csrf_token" value="ef082ec2fff3a535739eeace13ea1c3cb23bf6c979d29bec5240411cbba5312a">
+                                    <input type="hidden" name="delete_gift_id" value="7">
+                                    <button type="submit" style="padding: 5px 10px; font-size: 0.8rem; background: #ff4d4d;" onclick="return confirm('Tem certeza que deseja deletar este presente?');">Deletar</button>
+                                </form>
+                            </td>
+                        </tr>
+                                            <tr>
+                            <td>Urso de Pelúcia</td>
+                            <td>
+                                                                    <span style="color: green;">Disponível</span>
+                                                            </td>
+                            <td>
+                                <form action="admin.php" method="POST" style="margin:0; padding:0;">
+                                    <input type="hidden" name="csrf_token" value="ef082ec2fff3a535739eeace13ea1c3cb23bf6c979d29bec5240411cbba5312a">
+                                    <input type="hidden" name="delete_gift_id" value="6">
+                                    <button type="submit" style="padding: 5px 10px; font-size: 0.8rem; background: #ff4d4d;" onclick="return confirm('Tem certeza que deseja deletar este presente?');">Deletar</button>
+                                </form>
+                            </td>
+                        </tr>
+                                            <tr>
+                            <td>Roupinha</td>
+                            <td>
+                                                                    <span style="color: green;">Disponível</span>
+                                                            </td>
+                            <td>
+                                <form action="admin.php" method="POST" style="margin:0; padding:0;">
+                                    <input type="hidden" name="csrf_token" value="ef082ec2fff3a535739eeace13ea1c3cb23bf6c979d29bec5240411cbba5312a">
+                                    <input type="hidden" name="delete_gift_id" value="5">
+                                    <button type="submit" style="padding: 5px 10px; font-size: 0.8rem; background: #ff4d4d;" onclick="return confirm('Tem certeza que deseja deletar este presente?');">Deletar</button>
+                                </form>
+                            </td>
+                        </tr>
+                                            <tr>
+                            <td>Livro Infantil</td>
+                            <td>
+                                                                    <span style="color: green;">Disponível</span>
+                                                            </td>
+                            <td>
+                                <form action="admin.php" method="POST" style="margin:0; padding:0;">
+                                    <input type="hidden" name="csrf_token" value="ef082ec2fff3a535739eeace13ea1c3cb23bf6c979d29bec5240411cbba5312a">
+                                    <input type="hidden" name="delete_gift_id" value="4">
+                                    <button type="submit" style="padding: 5px 10px; font-size: 0.8rem; background: #ff4d4d;" onclick="return confirm('Tem certeza que deseja deletar este presente?');">Deletar</button>
+                                </form>
+                            </td>
+                        </tr>
+                                            <tr>
+                            <td>Quebra-cabeça</td>
+                            <td>
+                                                                    <span style="color: green;">Disponível</span>
+                                                            </td>
+                            <td>
+                                <form action="admin.php" method="POST" style="margin:0; padding:0;">
+                                    <input type="hidden" name="csrf_token" value="ef082ec2fff3a535739eeace13ea1c3cb23bf6c979d29bec5240411cbba5312a">
+                                    <input type="hidden" name="delete_gift_id" value="3">
+                                    <button type="submit" style="padding: 5px 10px; font-size: 0.8rem; background: #ff4d4d;" onclick="return confirm('Tem certeza que deseja deletar este presente?');">Deletar</button>
+                                </form>
+                            </td>
+                        </tr>
+                                            <tr>
+                            <td>Carrinho</td>
+                            <td>
+                                                                    <span style="color: var(--secondary-color); font-weight: bold;">
+                                        Reservado por: Fairy Godmother                                    </span>
+                                                            </td>
+                            <td>
+                                <form action="admin.php" method="POST" style="margin:0; padding:0;">
+                                    <input type="hidden" name="csrf_token" value="ef082ec2fff3a535739eeace13ea1c3cb23bf6c979d29bec5240411cbba5312a">
+                                    <input type="hidden" name="delete_gift_id" value="2">
+                                    <button type="submit" style="padding: 5px 10px; font-size: 0.8rem; background: #ff4d4d;" onclick="return confirm('Tem certeza que deseja deletar este presente?');">Deletar</button>
+                                </form>
+                            </td>
+                        </tr>
+                                            <tr>
+                            <td>Boneca</td>
+                            <td>
+                                                                    <span style="color: var(--secondary-color); font-weight: bold;">
+                                        Reservado por: Test User                                    </span>
+                                                            </td>
+                            <td>
+                                <form action="admin.php" method="POST" style="margin:0; padding:0;">
+                                    <input type="hidden" name="csrf_token" value="ef082ec2fff3a535739eeace13ea1c3cb23bf6c979d29bec5240411cbba5312a">
+                                    <input type="hidden" name="delete_gift_id" value="1">
+                                    <button type="submit" style="padding: 5px 10px; font-size: 0.8rem; background: #ff4d4d;" onclick="return confirm('Tem certeza que deseja deletar este presente?');">Deletar</button>
+                                </form>
+                            </td>
+                        </tr>
+                                    </tbody>
+            </table>
+
+    </div>
+</body>
+</html>
