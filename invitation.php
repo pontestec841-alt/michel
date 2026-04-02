@@ -63,20 +63,45 @@ try {
 
             <?php if ($settings['music_enabled'] && !empty($settings['music_url'])): ?>
                 <div class="no-print" style="margin-top: 20px;">
-                    <audio controls autoplay loop>
+                    <audio id="bg-music" autoplay loop style="display:none;">
                         <source src="<?php echo htmlspecialchars($settings['music_url']); ?>" type="audio/mpeg">
                         Seu navegador não suporta o elemento de áudio.
                     </audio>
+                    <button id="mute-btn" onclick="toggleMute()" style="padding: 10px; border-radius: 50%; width: 50px; height: 50px; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; margin: 0 auto; cursor: pointer;">
+                        🔊
+                    </button>
                 </div>
             <?php endif; ?>
 
             <div class="no-print" id="action-buttons" style="margin-top: 30px;">
-                <button onclick="downloadImage()" style="padding: 15px 30px; font-size: 1.2rem; cursor: pointer;">Salvar Convite como Imagem</button>
+                <button onclick="downloadImage()" style="padding: 15px 30px; font-size: 1.2rem; cursor: pointer; width: 100%;">Salvar Convite</button>
             </div>
         </div>
     </div>
 
     <script>
+        function toggleMute() {
+            const music = document.getElementById('bg-music');
+            const btn = document.getElementById('mute-btn');
+            if (music.muted) {
+                music.muted = false;
+                btn.innerHTML = '🔊';
+                // Try to play if it was blocked by autoplay policy
+                music.play().catch(e => console.log("Autoplay prevented:", e));
+            } else {
+                music.muted = true;
+                btn.innerHTML = '🔇';
+            }
+        }
+
+        // Attempt to start playing on first interaction if autoplay was blocked
+        document.body.addEventListener('click', function() {
+            const music = document.getElementById('bg-music');
+            if (music && music.paused) {
+                music.play().catch(e => console.log("Autoplay prevented:", e));
+            }
+        }, { once: true });
+
         function downloadImage() {
             // Temporarily hide elements we don't want in the image (like the button and audio)
             const noPrintElements = document.querySelectorAll('.no-print');

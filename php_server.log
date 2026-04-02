@@ -17,3 +17,33 @@
 [Thu Apr  2 20:55:09 2026] [::1]:44490 Accepted
 [Thu Apr  2 20:55:09 2026] [::1]:44490 [200]: GET /style.css
 [Thu Apr  2 20:55:09 2026] [::1]:44490 Closing
+[Thu Apr  2 21:04:32 2026] [::1]:50524 Accepted
+[Thu Apr  2 21:04:32 2026] [::1]:50524 [200]: GET /index.php
+[Thu Apr  2 21:04:32 2026] [::1]:50524 Closing
+[Thu Apr  2 21:04:32 2026] [::1]:50534 Accepted
+[Thu Apr  2 21:04:32 2026] [::1]:50536 Accepted
+[Thu Apr  2 21:04:32 2026] [::1]:50534 [200]: GET /style.css
+[Thu Apr  2 21:04:32 2026] [::1]:50536 [200]: GET /assets/image1.jpg
+[Thu Apr  2 21:04:32 2026] [::1]:50534 Closing
+[Thu Apr  2 21:04:32 2026] [::1]:50536 Closing
+[Thu Apr  2 21:04:33 2026] [::1]:50542 Accepted
+[Thu Apr  2 21:04:33 2026] [::1]:50542 [302]: POST /rsvp.php
+[Thu Apr  2 21:04:33 2026] [::1]:50542 Closing
+[Thu Apr  2 21:04:33 2026] [::1]:50548 Accepted
+[Thu Apr  2 21:04:33 2026] [::1]:50548 [200]: GET /gifts.php
+[Thu Apr  2 21:04:33 2026] [::1]:50548 Closing
+[Thu Apr  2 21:04:33 2026] [::1]:50558 Accepted
+[Thu Apr  2 21:04:33 2026] [::1]:50558 [200]: GET /style.css
+[Thu Apr  2 21:04:33 2026] [::1]:50558 Closing
+[Thu Apr  2 21:04:34 2026] [::1]:50560 Accepted
+[Thu Apr  2 21:04:34 2026] [::1]:50560 [200]: GET /invitation.php
+[Thu Apr  2 21:04:34 2026] [::1]:50560 Closing
+[Thu Apr  2 21:04:34 2026] [::1]:50570 Accepted
+[Thu Apr  2 21:04:34 2026] [::1]:50580 Accepted
+[Thu Apr  2 21:04:34 2026] [::1]:50570 [200]: GET /style.css
+[Thu Apr  2 21:04:34 2026] [::1]:50580 [200]: GET /assets/image3.jpg
+[Thu Apr  2 21:04:34 2026] [::1]:50570 Closing
+[Thu Apr  2 21:04:34 2026] [::1]:50580 Closing
+[Thu Apr  2 21:04:34 2026] [::1]:50586 Accepted
+[Thu Apr  2 21:04:34 2026] [::1]:50586 [200]: GET /assets/image4.jpg
+[Thu Apr  2 21:04:34 2026] [::1]:50586 Closing

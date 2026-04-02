@@ -38,6 +38,10 @@ try {
         <p>Abaixo está uma lista de sugestões de presentes. Não é obrigatório!</p>
         <p>Se desejar nos presentear com algo da lista, basta selecionar a opção abaixo. O item será retirado da lista para os outros convidados.</p>
 
+        <div style="margin: 20px 0;">
+            <a href="invitation.php" class="skip-link" style="font-size: 1.1rem; font-weight: bold; background-color: var(--primary-color); color: white; padding: 10px 20px; border-radius: 20px; text-decoration: none;">Pular e ver meu convite</a>
+        </div>
+
         <?php if (count($availableGifts) > 0): ?>
             <ul class="gift-list">
                 <?php foreach ($availableGifts as $gift): ?>
@@ -54,8 +58,6 @@ try {
         <?php else: ?>
             <p><strong>A lista de sugestões já foi toda preenchida. Muito obrigado pelo carinho!</strong></p>
         <?php endif; ?>
-
-        <a href="invitation.php" class="skip-link">Pular e ver meu convite</a>
     </div>
 </body>
 </html>

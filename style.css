@@ -174,7 +174,7 @@ button:hover {
     background: url('assets/image4.jpg') no-repeat center center;
     background-size: cover;
     border-radius: 20px;
-    padding: 40px;
+    padding: 40px 20px;
     position: relative;
     color: var(--white);
     text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
@@ -183,6 +183,7 @@ button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box; /* Fix for mobile overflow */
 }
 .invitation-card::after {
     content: '';
@@ -204,6 +205,20 @@ button:hover {
     color: var(--text-color);
     text-shadow: none;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 100%; /* Ensure content stays within the card */
+    box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+    .invitation-card {
+        padding: 20px 10px; /* Reduce padding on small screens */
+    }
+    .invitation-content {
+        padding: 20px; /* Reduce inner padding */
+    }
+    .invitation-content h1 {
+        font-size: 2.2rem; /* Make header smaller on mobile */
+    }
 }
 
 .invitation-content h1 {
