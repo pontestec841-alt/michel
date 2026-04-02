@@ -38,6 +38,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seu Convite</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
     <div class="container invitation-card" style="max-width: 800px; width: 95%;">
@@ -69,10 +70,42 @@ try {
                 </div>
             <?php endif; ?>
 
-            <div class="no-print" style="margin-top: 30px;">
-                <button onclick="window.print()" style="padding: 15px 30px; font-size: 1.2rem;">Salvar Convite (PDF/Imprimir)</button>
+            <div class="no-print" id="action-buttons" style="margin-top: 30px;">
+                <button onclick="downloadImage()" style="padding: 15px 30px; font-size: 1.2rem; cursor: pointer;">Salvar Convite como Imagem</button>
             </div>
         </div>
     </div>
+
+    <script>
+        function downloadImage() {
+            // Temporarily hide elements we don't want in the image (like the button and audio)
+            const noPrintElements = document.querySelectorAll('.no-print');
+            noPrintElements.forEach(el => el.style.display = 'none');
+
+            // Get the card element
+            const cardElement = document.querySelector('.invitation-card');
+
+            // Use html2canvas to capture the element
+            html2canvas(cardElement, {
+                scale: 2, // Higher resolution
+                useCORS: true, // Allow cross-origin images to be loaded
+                backgroundColor: null // Keep transparent background if any, or captures what is seen
+            }).then(canvas => {
+                // Restore the elements
+                noPrintElements.forEach(el => el.style.display = '');
+
+                // Create a download link and click it
+                const link = document.createElement('a');
+                link.download = 'meu_convite.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            }).catch(err => {
+                console.error("Erro ao gerar a imagem: ", err);
+                alert("Ocorreu um erro ao gerar a imagem do convite. Tente novamente.");
+                // Restore the elements in case of error
+                noPrintElements.forEach(el => el.style.display = '');
+            });
+        }
+    </script>
 </body>
 </html>

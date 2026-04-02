@@ -55,6 +55,60 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['admin_login']) && !i
     }
 }
 
+// Handle music upload
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['upload_music'])) {
+    if (isset($_FILES['music_file']) && $_FILES['music_file']['error'] === UPLOAD_ERR_OK) {
+        $uploadDir = __DIR__ . '/uploads/';
+        if (!is_dir($uploadDir)) {
+            mkdir($uploadDir, 0755, true);
+        }
+
+        $fileInfo = pathinfo($_FILES['music_file']['name']);
+        $extension = strtolower($fileInfo['extension']);
+        $allowedExtensions = ['mp3', 'wav', 'ogg'];
+
+        if (in_array($extension, $allowedExtensions)) {
+            // Fetch current settings to delete old file if it exists
+            try {
+                $stmt = $pdo->query("SELECT music_url FROM settings WHERE id = 1");
+                $currentSettings = $stmt->fetch(PDO::FETCH_ASSOC);
+                $oldFileUrl = $currentSettings['music_url'];
+
+                // If it's a local file, delete it
+                if (!empty($oldFileUrl) && strpos($oldFileUrl, 'uploads/') === 0) {
+                    $oldFilePath = __DIR__ . '/' . $oldFileUrl;
+                    if (file_exists($oldFilePath)) {
+                        unlink($oldFilePath);
+                    }
+                }
+            } catch (PDOException $e) {
+                // Ignore
+            }
+
+            // Generate new filename to avoid caching issues
+            $newFileName = 'music_' . time() . '.' . $extension;
+            $uploadFile = $uploadDir . $newFileName;
+            $relativeUrl = 'uploads/' . $newFileName;
+
+            if (move_uploaded_file($_FILES['music_file']['tmp_name'], $uploadFile)) {
+                try {
+                    $stmt = $pdo->prepare("UPDATE settings SET music_url = :url, music_enabled = 1 WHERE id = 1");
+                    $stmt->execute(['url' => $relativeUrl]);
+                    $success_msg = "Música atualizada com sucesso!";
+                } catch (PDOException $e) {
+                    $error = "Erro ao atualizar banco de dados: " . $e->getMessage();
+                }
+            } else {
+                $error = "Falha ao mover o arquivo enviado.";
+            }
+        } else {
+            $error = "Formato de arquivo inválido. Apenas MP3, WAV e OGG são permitidos.";
+        }
+    } else {
+        $error = "Erro no upload do arquivo.";
+    }
+}
+
 // Handle updating settings
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_settings'])) {
     try {
@@ -193,7 +247,7 @@ try {
                     <input type="text" name="event_location" value="<?php echo htmlspecialchars($settings['event_location']); ?>" required>
                 </div>
                 <div style="grid-column: 1 / -1; display:flex; flex-direction:column;">
-                    <label>URL da Música (Opcional):</label>
+                    <label>URL da Música (Pode ser um link externo ou deixe em branco se for fazer upload abaixo):</label>
                     <input type="text" name="music_url" value="<?php echo htmlspecialchars($settings['music_url']); ?>">
                 </div>
                 <div style="grid-column: 1 / -1; display:flex; align-items:center; gap:10px;">
@@ -203,6 +257,15 @@ try {
                 <div style="grid-column: 1 / -1;">
                     <button type="submit" name="update_settings" style="width:100%;">Salvar Configurações</button>
                 </div>
+            </form>
+
+            <hr style="margin: 20px 0; border: 1px solid #ffd1dc;">
+
+            <form action="admin.php" method="POST" enctype="multipart/form-data" style="display: flex; flex-direction: column; gap: 10px;">
+                <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
+                <label>Fazer Upload de Música (Formato: MP3, WAV, OGG):</label>
+                <input type="file" name="music_file" accept=".mp3, .wav, .ogg" required>
+                <button type="submit" name="upload_music" style="width:100%; background-color: var(--secondary-color);">Fazer Upload da Música</button>
             </form>
         </div>
 
