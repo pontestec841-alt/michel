@@ -109,6 +109,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['upload_music'])) {
     }
 }
 
+// Handle music deletion
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_music'])) {
+    try {
+        $stmt = $pdo->query("SELECT music_url FROM settings WHERE id = 1");
+        $currentSettings = $stmt->fetch(PDO::FETCH_ASSOC);
+        $oldFileUrl = $currentSettings['music_url'];
+
+        if (!empty($oldFileUrl) && strpos($oldFileUrl, 'uploads/') === 0) {
+            $oldFilePath = __DIR__ . '/' . $oldFileUrl;
+            if (file_exists($oldFilePath)) {
+                unlink($oldFilePath);
+            }
+        }
+
+        $stmt = $pdo->prepare("UPDATE settings SET music_url = '' WHERE id = 1");
+        $stmt->execute();
+        $success_msg = "Música excluída com sucesso!";
+    } catch (PDOException $e) {
+        $error = "Erro ao excluir música: " . $e->getMessage();
+    }
+}
+
+
 // Handle updating settings
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_settings'])) {
     try {
@@ -267,6 +290,13 @@ try {
                 <input type="file" name="music_file" accept=".mp3, .wav, .ogg" required>
                 <button type="submit" name="upload_music" style="width:100%; background-color: var(--secondary-color);">Fazer Upload da Música</button>
             </form>
+
+            <?php if(!empty($settings['music_url'])): ?>
+            <form action="admin.php" method="POST" style="margin-top: 10px;">
+                <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
+                <button type="submit" name="delete_music" style="width:100%; background-color: #ff4d4d;" onclick="return confirm('Tem certeza que deseja excluir a música atual?');">Excluir Música Atual</button>
+            </form>
+            <?php endif; ?>
         </div>
 
         <h2>Convidados Confirmados</h2>
