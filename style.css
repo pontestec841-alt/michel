@@ -1,0 +1,234 @@
+/* Import Google Fonts for a whimsical, elegant look */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap');
+
+:root {
+    --primary-color: #ff9ed2; /* Soft pink */
+    --secondary-color: #ff66b2; /* Darker pink */
+    --background-color: #fff0f5; /* Lavender blush */
+    --text-color: #4a4a4a;
+    --white: #ffffff;
+    --gold: #d4af37;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 102, 178, 0.2);
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add some sparkle/fairy dust effect to the container */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: linear-gradient(90deg, var(--primary-color), var(--gold), var(--primary-color));
+}
+
+h1, h2 {
+    font-family: 'Dancing Script', cursive;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 50%;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    width: 80%;
+    max-width: 300px;
+    padding: 12px 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 8px rgba(255, 102, 178, 0.5);
+}
+
+button {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255, 102, 178, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 102, 178, 0.5);
+}
+
+.gift-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.gift-item {
+    background-color: var(--background-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 15px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gift-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 102, 178, 0.2);
+}
+
+.gift-item form {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.gift-item button {
+    width: 100%;
+    padding: 8px;
+    font-size: 0.9rem;
+}
+
+.skip-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--text-color);
+    text-decoration: underline;
+    font-size: 0.9rem;
+}
+
+.skip-link:hover {
+    color: var(--secondary-color);
+}
+
+.invitation-card {
+    background: url('assets/image4.jpg') no-repeat center center;
+    background-size: cover;
+    border-radius: 20px;
+    padding: 40px;
+    position: relative;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.invitation-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.3); /* Add overlay to make text readable */
+    border-radius: 20px;
+    z-index: 1;
+}
+.invitation-content {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 30px;
+    border-radius: 15px;
+    color: var(--text-color);
+    text-shadow: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.invitation-content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+/* Admin Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
